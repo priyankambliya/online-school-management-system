@@ -9,6 +9,9 @@ export class Book {
     @Prop()
     author: string;
 
+    @Prop()
+    booksnumbers: number;
+
     @Prop({ default: now() })
     createdAt: Date;
 
