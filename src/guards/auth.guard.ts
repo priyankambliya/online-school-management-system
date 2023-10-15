@@ -18,10 +18,9 @@ import {
       ]);
       const userRole = request.app.locals.user.role;
       const isValid = roles.includes(userRole);
-      if (!isValid)
-        throw new NotAcceptableException(
-          "You can't has permission to access this route..",
-        );
+      if (!isValid) {
+        throw new NotAcceptableException("You can't has permission to access this route..")
+      }
       return true;
     }
   }
