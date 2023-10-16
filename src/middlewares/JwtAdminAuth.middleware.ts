@@ -3,15 +3,15 @@ import { Injectable, NestMiddleware } from '@nestjs/common'
 import { Request, Response, NextFunction } from 'express'
 import {SECRET_KEY} from '../security/config.json'
 import { InjectModel } from "@nestjs/mongoose"
-import { User, UserDocument } from "src/schemas/User.schema"
 import { Model } from "mongoose"
 import {errorNames} from '../handlers/allErrors.names'
+import { Admin, AdminDocument } from "src/schemas/Admin.schema"
 
 @Injectable()
-export class JwtMiddleware implements NestMiddleware {
+export class JwtAdminMiddleware implements NestMiddleware {
 
   constructor(
-    @InjectModel(User.name) private readonly userModel:Model<UserDocument>
+    @InjectModel(Admin.name) private readonly adminModel:Model<AdminDocument>
   ){}
 
   async use(request: Request, response: Response, next: NextFunction) {
@@ -21,9 +21,9 @@ export class JwtMiddleware implements NestMiddleware {
     const token = authorizationToken.split(' ')[1]
 
     const decodedToken:any = await Jwt.verify(token,SECRET_KEY)
-    const user = await this.userModel.findOne({email:decodedToken.email})
-    if(!user) throw {error:errorNames.USER_NOT_FOUND}
-    request.app.locals.user = user
+    const admin = await this.adminModel.findOne({email:decodedToken.email})
+    if(!admin) throw {error:errorNames.ADMIN_NOT_FOUND}
+    request.app.locals.admin = admin
     next();
   }
 }

@@ -32,7 +32,8 @@ export class AppController {
   ){
     const loginUserData = await this.appService.loginUser(response,user)
     const payload = {
-      email:loginUserData.email
+      email:loginUserData.email,
+      role:loginUserData.role
     }
     const token = await Jwt.sign(payload,SECRET_KEY)
     const message = {
