@@ -10,6 +10,9 @@ export class Book {
     author: string;
 
     @Prop()
+    image: string;
+
+    @Prop()
     booksnumbers: number;
 
     @Prop({ default: now() })

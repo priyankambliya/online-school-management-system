@@ -13,7 +13,7 @@ export class BookService {
     ){}
     
     // CREATE BOOK //
-    async creatBook(response,book:Book){
+    async creatBook(response,book:Book,file){
         const {
             book_name,
             author,
@@ -24,7 +24,8 @@ export class BookService {
             const createdBook = await this.bookModel.create({
                 book_name,
                 booksnumbers,
-                author
+                author,
+                image:file
             })
     
             if(!createdBook) throw errorResponseHandler(response,{error:errorNames.BOOK_NOT_CREATED},400)
