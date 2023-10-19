@@ -6,7 +6,7 @@ import {
   errorResponseHandler,
   successResponseHandler,
 } from 'src/handlers/response.handlers';
-import { SECRET_KEY } from '../../security/config.json'
+import { SECRET_KEY } from '../../../security/config.json'
 
 @Controller('admin')
 export class AdminController {

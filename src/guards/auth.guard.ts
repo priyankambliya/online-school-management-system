@@ -6,7 +6,6 @@ import {
   } from '@nestjs/common';
   import { Reflector } from '@nestjs/core';
   import { Roles } from '../decorators/roles.decorator'
-import { User } from '../schemas/User.schema';
   
   @Injectable()
   export class AuthGuard implements CanActivate {

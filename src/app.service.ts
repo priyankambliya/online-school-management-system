@@ -5,7 +5,7 @@ import { InjectModel } from "@nestjs/mongoose"
 import { Model } from "mongoose"
 import {
   SALT_OR_ROUND
-} from './security/config.json'
+} from '../security/config.json'
 import { errorResponseHandler } from "./handlers/response.handlers"
 
 @Injectable()

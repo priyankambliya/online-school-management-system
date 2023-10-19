@@ -5,7 +5,7 @@ import { User } from "./schemas/User.schema"
 import { successResponseHandler } from "./handlers/response.handlers"
 import {
   SECRET_KEY
-} from './security/config.json'
+} from '../security/config.json'
 
 @Controller()
 export class AppController {

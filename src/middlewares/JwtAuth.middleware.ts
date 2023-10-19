@@ -1,7 +1,7 @@
 import * as Jwt  from 'jsonwebtoken'
 import { Injectable, NestMiddleware } from '@nestjs/common'
 import { Request, Response, NextFunction } from 'express'
-import {SECRET_KEY} from '../security/config.json'
+import {SECRET_KEY} from '../../security/config.json'
 import { InjectModel } from "@nestjs/mongoose"
 import { Model } from "mongoose"
 import {errorNames} from '../handlers/allErrors.names'
