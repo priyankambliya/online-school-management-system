@@ -6,6 +6,7 @@ import {
   } from '@nestjs/common';
   import { Reflector } from '@nestjs/core';
   import { Roles } from '../decorators/roles.decorator'
+import { User } from '../schemas/User.schema';
   
   @Injectable()
   export class AuthGuard implements CanActivate {
@@ -16,8 +17,8 @@ import {
         context.getHandler(),
         context.getClass(),
       ]);
-      const userRole = request.app.locals.user.role;
-      const isValid = roles.includes(userRole);
+      const role = request.app.locals.user.role
+      const isValid = roles.includes(role);
       if (!isValid) {
         throw new NotAcceptableException("You can't has permission to access this route..")
       }
